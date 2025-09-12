@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priyanka Yadav - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+         .fade-in.visible {
+             opacity: 1;
+             transform: translateY(0);
+         }
+         .profile-photo {
+             transition: transform 0.3s ease, box-shadow 0.3s ease;
+         }
+         .profile-photo:hover {
+             transform: scale(1.05);
+             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+         }
+         .gradient-text {
+             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+             -webkit-background-clip: text;
+             -webkit-text-fill-color: transparent;
+             background-clip: text;
+         }
+         .hero-name {
+             color: #ffffff;
+             text-shadow: 
+                 0 0 8px rgba(255,255,255,0.6),
+                 0 0 15px rgba(255,255,255,0.3),
+                 2px 2px 4px rgba(0,0,0,0.3);
+             font-weight: 800;
+             letter-spacing: 2px;
+         }
+         .floating {
+             animation: floating 3s ease-in-out infinite;
+         }
+         @keyframes floating {
+             0%, 100% { transform: translateY(0px); }
+             50% { transform: translateY(-10px); }
+         }
+         .pulse-animation {
+             animation: pulse 2s infinite;
+         }
+         @keyframes pulse {
+             0%, 100% { opacity: 1; }
+             50% { opacity: 0.7; }
+         }
+         .skill-bar {
+             transition: width 2s ease-in-out;
+         }
+         .card-glow {
+             transition: all 0.3s ease;
+         }
+         .card-glow:hover {
+             box-shadow: 0 25px 50px rgba(102, 126, 234, 0.15);
+             transform: translateY(-8px);
+         }
+         .floating-particle {
+             position: absolute;
+             width: 8px;
+             height: 8px;
+             background: rgba(255, 255, 255, 0.3);
+             border-radius: 50%;
+             animation: float 6s ease-in-out infinite;
+         }
+         @keyframes float {
+             0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+             50% { transform: translateY(-20px) rotate(180deg); opacity: 0.8; }
+         }
+    </style>
+</head>
+<body class="smooth-scroll">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold text-gray-800">Priyanka Yadav</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-purple-600 transition-colors">Home</a>
+                    <a href="#about" class="text-gray-600 hover:text-purple-600 transition-colors">About</a>
+                    <a href="#experience" class="text-gray-600 hover:text-purple-600 transition-colors">Experience</a>
+                    <a href="#projects" class="text-gray-600 hover:text-purple-600 transition-colors">Projects</a>
+                    <a href="#skills" class="text-gray-600 hover:text-purple-600 transition-colors">Skills</a>
+                     <a href="#resume" class="text-gray-600 hover:text-purple-600 transition-colors">Resume</a>
+                     <a href="#contact" class="text-gray-600 hover:text-purple-600 transition-colors">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#home" class="block py-2 text-gray-600 hover:text-purple-600">Home</a>
+                <a href="#about" class="block py-2 text-gray-600 hover:text-purple-600">About</a>
+                <a href="#experience" class="block py-2 text-gray-600 hover:text-purple-600">Experience</a>
+                <a href="#projects" class="block py-2 text-gray-600 hover:text-purple-600">Projects</a>
+                <a href="#skills" class="block py-2 text-gray-600 hover:text-purple-600">Skills</a>
+                 <a href="#resume" class="block py-2 text-gray-600 hover:text-purple-600">Resume</a>
+                 <a href="#contact" class="block py-2 text-gray-600 hover:text-purple-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg min-h-screen flex items-center relative overflow-hidden">
+        <!-- Floating particles -->
+        <div class="absolute inset-0">
+            <div class="floating-particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+            <div class="floating-particle" style="top: 60%; left: 80%; animation-delay: 2s;"></div>
+            <div class="floating-particle" style="top: 40%; left: 70%; animation-delay: 4s;"></div>
+            <div class="floating-particle" style="top: 80%; left: 20%; animation-delay: 1s;"></div>
+        </div>
+         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+             <div class="text-center text-white">
+                 <div class="fade-in">
+                     <div class="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden border-4 border-white/30 shadow-2xl profile-photo floating">
+                         <img src="photo.jpg" alt="Priyanka Yadav" class="w-full h-full object-cover">
+                     </div>
+                     <h1 class="text-5xl md:text-7xl font-bold mb-6 hero-name">Priyanka Yadav</h1>
+                     <div class="flex flex-wrap justify-center gap-2 mb-8">
+                         <span class="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">B.Tech Computer Science</span>
+                         <span class="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">Full-Stack Developer</span>
+                         <span class="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">AI Enthusiast</span>
+                     </div>
+                    <p class="text-lg md:text-xl mb-12 max-w-3xl mx-auto text-blue-50">
+                        Results-driven Computer Science student with expertise in MERN stack, AI integration, and building innovative solutions. 
+                        Passionate about leveraging technology to solve real-world problems.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="#projects" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                            View My Work
+                        </a>
+                        <a href="#contact" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-colors">
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">About Me</h2>
+                <div class="w-24 h-1 bg-purple-600 mx-auto"></div>
+            </div>
+             <div class="grid md:grid-cols-2 gap-12 items-center">
+                 <div class="fade-in">
+                     <div class="bg-white rounded-2xl p-8 shadow-lg card-glow">
+                         <div class="flex flex-col items-center mb-6">
+                             <div class="w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-purple-200 profile-photo">
+                                 <img src="photo.jpg" alt="Priyanka Yadav" class="w-full h-full object-cover">
+                             </div>
+                             <h3 class="text-2xl font-semibold text-gray-800 gradient-text">Hello! I'm Priyanka</h3>
+                         </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            I'm a passionate B.Tech Computer Science student at GLA University with a strong foundation in Java, 
+                            data structures, algorithms, and full-stack web development. I specialize in MERN stack development 
+                            and AI integration, with hands-on experience in building dynamic applications.
+                        </p>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            My journey includes developing AI-powered solutions, optimizing ATS-based resume tracking systems, 
+                            and creating educational platforms. I'm always eager to learn new technologies and contribute 
+                            to innovative projects that make a real impact.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium">MERN Stack</span>
+                            <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">AI Integration</span>
+                            <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">Java</span>
+                            <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium">Agile/Scrum</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Quick Facts</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-graduation-cap text-purple-600 mr-3"></i>
+                                <span class="text-gray-600">B.Tech Computer Science at GLA University</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-purple-600 mr-3"></i>
+                                <span class="text-gray-600">Renukoot, Sonbhadra, Uttar Pradesh</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-trophy text-purple-600 mr-3"></i>
+                                <span class="text-gray-600">Top 9 Finalist - Smart India Hackathon 2024</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-code text-purple-600 mr-3"></i>
+                                <span class="text-gray-600">2+ Years of Development Experience</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Experience</h2>
+                <div class="w-24 h-1 bg-purple-600 mx-auto"></div>
+            </div>
+            <div class="space-y-8">
+                 <div class="fade-in card-hover bg-white rounded-2xl p-8 shadow-lg border-l-4 border-purple-600 card-glow">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">Summer Training</h3>
+                        <span class="text-purple-600 font-medium">June 2024 - July 2024</span>
+                    </div>
+                    <h4 class="text-xl text-gray-700 mb-2">W3elites Pvt. Ltd. | Remote</h4>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Developed a MERN Stack application, integrating Generative AI for advanced user interaction
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Implemented Agile and Scrum methodologies, increasing project efficiency and reducing development cycles
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Created and showcased a capstone project, applying AI-driven insights to enhance user engagement
+                        </li>
+                    </ul>
+                </div>
+
+                 <div class="fade-in card-hover bg-white rounded-2xl p-8 shadow-lg border-l-4 border-blue-600 card-glow">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <h3 class="text-2xl font-semibold text-gray-800">Full-Stack Web Development Intern</h3>
+                        <span class="text-blue-600 font-medium">February 2024 - March 2024</span>
+                    </div>
+                    <h4 class="text-xl text-gray-700 mb-2">Zidio Development | Remote</h4>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Developed a responsive website using HTML, CSS, JavaScript and React.js
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Managed version control using Git and GitHub, ensuring efficient collaboration and reducing code conflicts
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Featured Projects</h2>
+                <div class="w-24 h-1 bg-purple-600 mx-auto"></div>
+            </div>
+             <div class="grid md:grid-cols-2 gap-8">
+                 <div class="fade-in card-hover bg-white rounded-2xl p-8 shadow-lg card-glow">
+                     <div class="mb-6">
+                         <div class="flex items-center mb-4">
+                             <i class="fas fa-brain text-purple-600 text-2xl mr-3 pulse-animation"></i>
+                             <h3 class="text-2xl font-semibold text-gray-800">AI-Powered Quiz Platform</h3>
+                         </div>
+                        <p class="text-gray-600 mb-4">
+                            Developed an AI-powered educational tool enabling students to generate quiz questions from notes in multiple languages, 
+                            enhancing learning efficiency and accessibility.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">AI/ML</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">React.js</span>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Node.js</span>
+                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">MongoDB</span>
+                        </div>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-purple-600 hover:text-purple-800 font-medium">
+                            <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-gray-800 font-medium">
+                            <i class="fab fa-github mr-1"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+
+                 <div class="fade-in card-hover bg-white rounded-2xl p-8 shadow-lg card-glow">
+                     <div class="mb-6">
+                         <div class="flex items-center mb-4">
+                             <i class="fas fa-file-alt text-blue-600 text-2xl mr-3 pulse-animation"></i>
+                             <h3 class="text-2xl font-semibold text-gray-800">AI-Powered ATS System</h3>
+                         </div>
+                        <p class="text-gray-600 mb-4">
+                            Built an AI-driven system optimizing resumes for job applications. Users upload resumes/job descriptions 
+                            to receive ATS scores and improvement suggestions.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">AI/ML</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Flask</span>
+                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">NLP</span>
+                        </div>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">
+                            <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-gray-800 font-medium">
+                            <i class="fab fa-github mr-1"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Skills & Technologies</h2>
+                <div class="w-24 h-1 bg-purple-600 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Technical Skills</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 font-medium">Java & OOP</span>
+                                <span class="text-gray-500">90%</span>
+                            </div>
+                             <div class="w-full bg-gray-200 rounded-full h-2">
+                                 <div class="bg-purple-600 h-2 rounded-full skill-bar" style="width: 90%"></div>
+                             </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 font-medium">MERN Stack</span>
+                                <span class="text-gray-500">85%</span>
+                            </div>
+                             <div class="w-full bg-gray-200 rounded-full h-2">
+                                 <div class="bg-blue-600 h-2 rounded-full skill-bar" style="width: 85%"></div>
+                             </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 font-medium">Data Structures & Algorithms</span>
+                                <span class="text-gray-500">80%</span>
+                            </div>
+                             <div class="w-full bg-gray-200 rounded-full h-2">
+                                 <div class="bg-green-600 h-2 rounded-full skill-bar" style="width: 80%"></div>
+                             </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 font-medium">AI/ML Integration</span>
+                                <span class="text-gray-500">75%</span>
+                            </div>
+                             <div class="w-full bg-gray-200 rounded-full h-2">
+                                 <div class="bg-yellow-600 h-2 rounded-full skill-bar" style="width: 75%"></div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Technologies & Tools</h3>
+                     <div class="grid grid-cols-2 gap-4">
+                         <div class="bg-gray-50 p-4 rounded-lg text-center hover:bg-yellow-50 hover:scale-105 transition-all duration-300 cursor-pointer">
+                             <i class="fab fa-js-square text-3xl text-yellow-500 mb-2"></i>
+                             <p class="text-gray-700 font-medium">JavaScript</p>
+                         </div>
+                        <div class="bg-gray-50 p-4 rounded-lg text-center hover:bg-blue-50 hover:scale-105 transition-all duration-300 cursor-pointer">
+                            <i class="fab fa-react text-3xl text-blue-500 mb-2"></i>
+                            <p class="text-gray-700 font-medium">React.js</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg text-center hover:bg-green-50 hover:scale-105 transition-all duration-300 cursor-pointer">
+                            <i class="fab fa-node-js text-3xl text-green-500 mb-2"></i>
+                            <p class="text-gray-700 font-medium">Node.js</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg text-center hover:bg-green-50 hover:scale-105 transition-all duration-300 cursor-pointer">
+                            <i class="fas fa-database text-3xl text-green-600 mb-2"></i>
+                            <p class="text-gray-700 font-medium">MongoDB</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg text-center hover:bg-orange-50 hover:scale-105 transition-all duration-300 cursor-pointer">
+                            <i class="fab fa-git-alt text-3xl text-orange-500 mb-2"></i>
+                            <p class="text-gray-700 font-medium">Git/GitHub</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg text-center hover:bg-purple-50 hover:scale-105 transition-all duration-300 cursor-pointer">
+                            <i class="fas fa-brain text-3xl text-purple-500 mb-2"></i>
+                            <p class="text-gray-700 font-medium">AI/ML</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Achievements Section -->
+    <section id="education" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Education & Achievements</h2>
+                <div class="w-24 h-1 bg-purple-600 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Education</h3>
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-2xl p-6 shadow-lg">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Bachelor of Technology in Computer Science</h4>
+                            <p class="text-gray-600 mb-2">GLA University, Mathura</p>
+                            <p class="text-purple-600 font-medium">May 2026</p>
+                        </div>
+                        <div class="bg-white rounded-2xl p-6 shadow-lg">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Intermediate</h4>
+                            <p class="text-gray-600 mb-2">Aditya Birla I.C., Renukoot</p>
+                            <p class="text-purple-600 font-medium">May 2022</p>
+                        </div>
+                        <div class="bg-white rounded-2xl p-6 shadow-lg">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">High School</h4>
+                            <p class="text-gray-600 mb-2">Aditya Birla I.C., Renukoot</p>
+                            <p class="text-purple-600 font-medium">May 2020</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Key Achievements</h3>
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-yellow-500">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-trophy text-yellow-500 text-2xl mr-3"></i>
+                                <h4 class="text-xl font-semibold text-gray-800">Smart India Hackathon 2024</h4>
+                            </div>
+                            <p class="text-gray-600">Ranked in Top 9 out of 210 teams at GLA University, developing a real-world AI-powered solution.</p>
+                        </div>
+                        <div class="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-blue-500">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-certificate text-blue-500 text-2xl mr-3"></i>
+                                <h4 class="text-xl font-semibold text-gray-800">Certifications</h4>
+                            </div>
+                            <ul class="text-gray-600 space-y-1">
+                                <li>• Java Master Course, Coding Blocks (6 Months)</li>
+                                <li>• Full-Stack Development Internship, Zidio Development</li>
+                                <li>• MERN Stack & AI Integration Training, W3elites Pvt. Ltd.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Resume</h2>
+                <div class="w-24 h-1 bg-purple-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                    Download my complete resume to learn more about my qualifications, experience, and achievements.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-8 card-glow">
+                        <div class="text-center">
+                            <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-purple-200">
+                                <img src="photo.jpg" alt="Priyanka Yadav" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Priyanka Yadav</h3>
+                            <p class="text-purple-600 font-medium mb-4">B.Tech Computer Science Student</p>
+                            <div class="space-y-2 text-sm text-gray-600">
+                                <p><i class="fas fa-envelope mr-2"></i>priyanka.yadav_cs22@gla.ac.in</p>
+                                <p><i class="fas fa-phone mr-2"></i>+91 9670701380</p>
+                                <p><i class="fas fa-map-marker-alt mr-2"></i>Renukoot, Sonbhadra, UP</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-2xl p-6 shadow-lg card-glow">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-download text-purple-600 mr-3"></i>
+                                Download Resume
+                            </h4>
+                            <p class="text-gray-600 mb-4">
+                                Get my complete resume in PDF format with detailed information about my education, 
+                                experience, projects, and skills.
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="PriyankaYadav.pdf" download="Priyanka_Yadav_Resume.pdf" 
+                                   class="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-center">
+                                    <i class="fas fa-download mr-2"></i>Download PDF
+                                </a>
+                                <a href="PriyankaYadav.pdf" target="_blank" 
+                                   class="border-2 border-purple-600 text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-purple-600 hover:text-white transition-all duration-300 hover:scale-105 text-center">
+                                    <i class="fas fa-external-link-alt mr-2"></i>View Online
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-2xl p-6 shadow-lg card-glow">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-star text-yellow-500 mr-3"></i>
+                                Key Highlights
+                            </h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Top 9 Finalist - Smart India Hackathon 2024</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>2+ Years of Development Experience</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>MERN Stack & AI Integration Expertise</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                    <span>Multiple Certifications & Training Programs</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+                <div class="w-24 h-1 bg-purple-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                    I'm always interested in new opportunities and exciting projects. Let's connect and discuss how we can work together!
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-purple-600 mr-4"></i>
+                            <a href="mailto:priyanka.yadav_cs22@gla.ac.in" class="text-gray-600 hover:text-purple-600">
+                                priyanka.yadav_cs22@gla.ac.in
+                            </a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-purple-600 mr-4"></i>
+                            <a href="tel:+919670701380" class="text-gray-600 hover:text-purple-600">
+                                +91 9670701380
+                            </a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-purple-600 mr-4"></i>
+                            <span class="text-gray-600">Renukoot, Sonbhadra, Uttar Pradesh</span>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-4">Connect with me</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://www.linkedin.com/in/priyanka-yadav22/" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/Priyanka33591" class="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-900 transition-colors">
+                                <i class="fab fa-github"></i>
+                            </a>
+                             <a href="https://leetcode.com/u/Priyankay04/" class="bg-orange-500 text-white p-3 rounded-full hover:bg-orange-600 transition-colors">
+                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                     <!-- Less than symbol (<) in black -->
+                                     <path d="M6 6L6 18L18 12L6 6Z" fill="#000000"/>
+                                     <!-- Equal symbol (=) in orange -->
+                                     <rect x="6" y="6" width="12" height="2" fill="#ffa116"/>
+                                     <rect x="6" y="10" width="12" height="2" fill="#ffa116"/>
+                                 </svg>
+                             </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" name="name" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" required 
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"></textarea>
+                        </div>
+                         <button type="submit" 
+                                 class="w-full bg-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-purple-700 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                             <i class="fas fa-paper-plane mr-2"></i>Send Message
+                         </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p>&copy; 2024 Priyanka Yadav. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
