@@ -9,7 +9,7 @@ A modern and responsive personal portfolio website built to showcase my skills, 
 Add your deployed portfolio link here:
 
 ```bash
-[https://your-portfolio-link.com](https://priyankayadavportfolio.netlify.app/)
+https://priyankayadavportfolio.netlify.app
 ```
 
 ---
