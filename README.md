@@ -53,7 +53,6 @@ portfolio/
 │
 ├── index.html
 ├── script.js
-├── style.css (optional)
 ├── photo.jpg
 ├── PriyankaYadav.pdf
 └── README.md
@@ -97,13 +96,13 @@ portfolio/
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/portfolio.git
+git clone https://github.com/Priyanka33591/My-Portfolio
 ```
 
 Open the folder:
 
 ```bash
-cd portfolio
+cd My-Portfolio
 ```
 
 Run locally:
